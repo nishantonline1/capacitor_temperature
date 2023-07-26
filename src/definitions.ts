@@ -1,3 +1,6 @@
+import type { PluginListenerHandle } from '@capacitor/core';
+
 export interface CapacitorTemperaturePlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  getTemperature(): Promise<{ temperature: number }>;
+  addListener(eventName: 'temperatureUpdate', listenerFunc: (data: { temperature: number }) => void): PluginListenerHandle;
 }

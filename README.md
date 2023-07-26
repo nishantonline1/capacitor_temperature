@@ -13,25 +13,49 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+* [`getTemperature()`](#gettemperature)
+* [`addListener('temperatureUpdate', ...)`](#addlistenertemperatureupdate)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
+### getTemperature()
 
 ```typescript
-echo(options: { value: string; }) => Promise<{ value: string; }>
+getTemperature() => Promise<{ temperature: number; }>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+**Returns:** <code>Promise&lt;{ temperature: number; }&gt;</code>
 
 --------------------
+
+
+### addListener('temperatureUpdate', ...)
+
+```typescript
+addListener(eventName: 'temperatureUpdate', listenerFunc: (data: { temperature: number; }) => void) => PluginListenerHandle
+```
+
+| Param              | Type                                                     |
+| ------------------ | -------------------------------------------------------- |
+| **`eventName`**    | <code>'temperatureUpdate'</code>                         |
+| **`listenerFunc`** | <code>(data: { temperature: number; }) =&gt; void</code> |
+
+**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+
+--------------------
+
+
+### Interfaces
+
+
+#### PluginListenerHandle
+
+| Prop         | Type                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 </docgen-api>
